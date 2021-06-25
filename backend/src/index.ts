@@ -8,6 +8,7 @@ import channelRoutes from "./routes/channel";
 dotenv.config();
 
 if (!process.env.PORT) {
+  console.log('Env not found');
   process.exit(1);
 }
 
