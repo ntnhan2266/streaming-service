@@ -5,9 +5,9 @@ const client = new IvsClient({region: 'us-east-1'});
 
 export const createChannelCommand = new CreateChannelCommand({
   authorized: false,
-  latencyMode: ChannelLatencyMode.LowLatency,
+  latencyMode: ChannelLatencyMode.NormalLatency,
   name: uuidv4(),
-  type: ChannelType.BasicChannelType
+  type: ChannelType.StandardChannelType
 })
 
 export default client;
