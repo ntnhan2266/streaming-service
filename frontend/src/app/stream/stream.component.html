@@ -1,0 +1,28 @@
+<div>
+  Live:
+  <app-video-player [src]="playURL">
+  </app-video-player>
+</div>
+<select id="videoin" class="form-control">
+  <option disabled>Select Camera</option>
+  <option *ngFor="let videoin of devices.videoin" key={videoin.id} value={videoin.id}>{{videoin.label}}</option>
+</select>
+<select id="audioin" class="form-control">
+  <option disabled>Select Audio In</option>
+  <option *ngFor="let audioin of devices.audioin" key={audioin.id} value={audioin.id}>{{audioin.label}}</option>
+</select>
+<select id="audioout" class="form-control">
+  <option disabled>Select Audio Out</option>
+  <option *ngFor="let audioout of devices.audioout" key={audioout.id} value={audioout.id}>{{audioout.label}}</option>
+</select>
+
+<div *ngIf="!status.isConnecting && configured" className="formLabel">
+  <button className="formBot" (click)="startStreaming()">GoLive!</button>
+</div>
+<div *ngIf="status.isStreaming" className="form-group">
+  <button type="submit" className="formBotStop" (click)="stopStreaming()">StopStreaming!</button>
+</div>
+<div className="webcamBOX">
+  Camera:
+  <video autoPlay="true" [muted]="true" id="videoElement" #stream controls></video>
+</div>

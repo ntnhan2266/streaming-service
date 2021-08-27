@@ -1,0 +1,54 @@
+<div>
+  <div className="container fluid">
+    <div className="headerPlayer">
+      <h1>IVS Simple Streaming</h1>
+    </div>
+  </div>
+  <div className="enCamera">
+    <div>
+      <p>Welcome</p>
+      <p>This is a simple contribution web application to Amazon Interactive Video Service, for more details please
+        visit the project <a href="https://github.com/aws-samples/aws-simple-streaming-webapp">GitHub</a></p>
+    </div>
+    <button *ngIf="configured" className="buttonEncam" type="submit" (click)="gotoCam()">Enable Cam!</button>
+  </div>
+  <div *ngIf="!configured">
+    <p className="configFirst">Please configure the IVS paramerters before proceeding:</p>
+  </div>
+  <div className="errorMSG" *ngIf="errorMSG">
+    <p>Please enable your Camera, check browser Permissions.</p>
+    <p>Error: {{errorMSG}}</p>
+  </div>
+  <div *ngIf="saved" className="saved">Channel has been saved for user</div>
+
+  <div className="textFormivs">
+    <div className="form-ivs">
+      <div className="form-URL">
+        <div className="row">
+          <label className="formLabel">
+            IVS URL:
+            <input id="rtmpURL" type="text" width="100%" className="formURL" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm" [(ngModel)]="rtmpURL"
+            />
+          </label>
+          <label className="formLabel">
+            Stream Key:
+            <input id="streamKey" type="password" className="formURL"
+              aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm1" [(ngModel)]="streamKey" />
+          </label>
+
+          <label className="formLabel">
+            Playback URL:
+            <input id="playURL" type="text" className="formURL" [(ngModel)]="playURL" aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-sm1"
+            />
+          </label>
+        </div>
+        <div className="formLabel">
+          <button type="submit" className="formBot">Save</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
